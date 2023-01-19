@@ -7,8 +7,8 @@ class Program
         Console.Write("What is the number grade of your assignment?");
         string numGradeString = Console.ReadLine();
         int numGrade = int.Parse(numGradeString);
-        string letter = null;
-        string plusOrMinus = null;
+        string letter = "";
+        string plusOrMinus = "null";
 
         if (numGrade < 60) {
             letter = "F";
