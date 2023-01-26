@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 
+[Serializable]
 public class Entry {
     public string entryDate;
     public string prompt;
@@ -19,7 +20,7 @@ public class Entry {
     }
     public string GenerateDate(){
         var todayDate = DateTime.Today;
-        string todayString = todayDate.ToString();
+        string todayString = todayDate.ToShortDateString();
         return todayString;
     }
 
