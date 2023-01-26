@@ -1,10 +1,12 @@
 using System;
+using System.Collections.Generic;
 
 class Program
 {
     static void Main(string[] args)
     {
 
+        string fileName = "";
 
         Console.WriteLine("Welcome To Your Journal");
         string response = DisplayChoices();
@@ -19,7 +21,15 @@ class Program
             Console.WriteLine("5. Quit");
             Console.Write("What would you like to do?");
             string response = Console.ReadLine();
-            if (response == "1" || response == "2" || response == "3" || response == "4" || response == "5") {
+            if (response == "1"){
+                return response;
+            }else if (response == "2"){
+                return response;
+            }else if (response == "3"){
+                return response;
+            }else if (response == "4"){
+                return response;
+            }else if (response == "5"){
                 return response;
             }
             else {
