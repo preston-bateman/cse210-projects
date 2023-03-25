@@ -1,6 +1,6 @@
 using System;
 
-public class Goals{
+public abstract class Goals{
     protected string _name;
     protected string _desc;
     protected int _value;
