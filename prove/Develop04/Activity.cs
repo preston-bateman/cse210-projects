@@ -45,9 +45,10 @@ public class Activity{
 
     public void Outro(){
         Console.WriteLine($"Well Done!!!");
+        Spinner spin = new Spinner();
+        spin.GetSpinner();
         Console.WriteLine(" ");
         Console.WriteLine($"You have completed another {_duration} seconds of the {_name}.");
-        Spinner spin = new Spinner();
         spin.GetSpinner();
         Console.Clear();
     }
