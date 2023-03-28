@@ -34,8 +34,12 @@ class Program
                     activ.BreathingActivity();
                     break;
                 case 2:
+                    Reflecting blah = new Reflecting();
+                    blah.ReflcetingActivity();
                     break;
                 case 3:
+                    Listing meh = new Listing();
+                    meh.ListingActivity();
                     break;
                 case 4:
                     break;
