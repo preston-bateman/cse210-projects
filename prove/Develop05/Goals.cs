@@ -18,4 +18,8 @@ public abstract class Goals{
     public string GetName(){
         return _name;
     }
+
+    public virtual string SaveGoal(){
+        return $"{_name},{_desc},{_value},{_compCount}";
+    }
 }
