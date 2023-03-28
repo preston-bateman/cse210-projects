@@ -24,10 +24,11 @@ public class Activity{
     public int GetDuration(){
         return this._duration;
     }
-    public void SetDuration(){
+    public int SetDuration(){
         Console.Write($"How long, in seconds, would you like for your session? ");
         int duration = Int32.Parse(Console.ReadLine());
-        _duration = duration;
+        this._duration = duration;
+        return duration;
     }
     public string GetExit(){
         return _exitMSG;
@@ -36,11 +37,11 @@ public class Activity{
         _exitMSG = $"You have completed another {_duration} seconds of the {_name}.";
     }
 
-    public void Intro(){
+    public int Intro(){
         Console.WriteLine($"Welcome to the {_name}.");
         Console.WriteLine(" ");
         Console.WriteLine($"{_desc}");
-        SetDuration();
+        return SetDuration();
     }
 
     public void Outro(){

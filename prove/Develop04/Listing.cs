@@ -27,11 +27,10 @@ public class Listing : Activity{
     }
 
     public void ListingActivity(){
-        int timer = GetDuration();
         int listCount = 0;
 
         Console.Clear();
-        Intro();
+        int timer = Intro();
         Console.Clear();
         Console.WriteLine("Get ready...");
         _thisSpin.GetSpinner();
@@ -40,6 +39,7 @@ public class Listing : Activity{
         GetListPrompt();
         Console.Write("You may begin in: ");
         counter.GetCount();
+        Console.WriteLine();
         Stopwatch stopper = new Stopwatch();
         stopper.Start();
         while(timer > stopper.Elapsed.TotalSeconds){

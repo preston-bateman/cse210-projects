@@ -40,16 +40,15 @@ public class Reflecting : Activity {
         Random rando = new Random();
         int i = rando.Next(this._questions.Length);
         string question = this._questions[i];
-        Console.Write($"{question}  ");
+        Console.WriteLine($"{question}  ");
         var spin = new Spinner();
         spin.GetSpinner();
     }
 
     public void ReflcetingActivity(){
-        int timer = GetDuration();
 
         Console.Clear();
-        Intro();
+        int timer = Intro();
         Console.Clear();
         GetPrompt();
         Console.ReadLine();
@@ -59,8 +58,9 @@ public class Reflecting : Activity {
         count.GetCount();
         Console.Clear();
 
-        while(timer != 0){
+        while(timer >= 0){
             GetQuestions();
+            timer-=4;
         }
         this.Outro();
     }
