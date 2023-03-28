@@ -30,6 +30,8 @@ class Program
 
             switch(action){
                 case 1:
+                    Breathing activ = new Breathing();
+                    activ.BreathingActivity();
                     break;
                 case 2:
                     break;

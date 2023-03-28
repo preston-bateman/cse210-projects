@@ -33,13 +33,29 @@ public class Breathing : Activity{
     }
     
     public void BreathingActivity(){
+        int timer = GetDuration();
+        int whichOne = 0;
+
         Console.Clear();
         Intro();
         Console.Clear();
         Console.WriteLine("Get Ready...");
         var spin = new Spinner();
         spin.GetSpinner();
-
+        Console.WriteLine();
+       
+        while(timer !=0) {
+            if (whichOne == 0){
+                BreathIn();
+                timer = timer - 4;
+                whichOne++;
+            }else {
+                BreathOut();
+                timer = timer - 4;
+                whichOne--;
+            }
+        }
+        this.Outro();
     }
 
 

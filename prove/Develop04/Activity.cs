@@ -47,5 +47,8 @@ public class Activity{
         Console.WriteLine($"Well Done!!!");
         Console.WriteLine(" ");
         Console.WriteLine($"You have completed another {_duration} seconds of the {_name}.");
+        Spinner spin = new Spinner();
+        spin.GetSpinner();
+        Console.Clear();
     }
 }
