@@ -4,23 +4,10 @@ public class Activity{
     
     //attributes
     protected string _name;
-    protected string _duration;
+    protected int _duration;
     protected string _desc;
-    private string _wellDone;
     private string _exitMSG;
 
-    public Activity() {
-        _name = "";
-        _duration = "";
-        _wellDone = "Well Done";
-        _exitMSG = "";
-    }
-
-    public Activity(string name, string description){
-        _name = name;
-        _desc = description;
-        _wellDone = "Well Done";
-    }
 
     public string GetName(){
         return this._name;
@@ -34,18 +21,31 @@ public class Activity{
     public void SetDesc(string desc){
         _desc = desc;
     }
-    public string GetDuration(){
+    public int GetDuration(){
         return this._duration;
     }
     public void SetDuration(){
         Console.Write($"How long, in seconds, would you like for your session? ");
-        string duration = Console.ReadLine();
+        int duration = Int32.Parse(Console.ReadLine());
         _duration = duration;
     }
     public string GetExit(){
-        return this._exitMSG;
+        return _exitMSG;
     }
-    public void SetExit(string msg){
-        _exitMSG = msg;
+    public void SetExit(){
+        _exitMSG = $"You have completed another {_duration} seconds of the {_name}.";
+    }
+
+    public void Intro(){
+        Console.WriteLine($"Welcome to the {_name}.");
+        Console.WriteLine(" ");
+        Console.WriteLine($"{_desc}");
+        SetDuration();
+    }
+
+    public void Outro(){
+        Console.WriteLine($"Well Done!!!");
+        Console.WriteLine(" ");
+        Console.WriteLine($"You have completed another {_duration} seconds of the {_name}.");
     }
 }
