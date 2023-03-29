@@ -1,7 +1,7 @@
 using System;
 
 public class TurnHandler{
-    private int _whoseTurn;
+    //private int _whoseTurn;
     Spinner spinner = new Spinner();
 
     public void Game(){
@@ -10,49 +10,34 @@ public class TurnHandler{
         int attackHand;
         int attackHandScore;
         int defendHand;
+        int whoseTurn;
 
         Console.Clear();
-        _whoseTurn = 1;
-        while(_whoseTurn != 0){
-            player1.DisplayHands();
-            player2.DisplayHands();
+        whoseTurn = 1;
+        while(whoseTurn != 0){
+            whoseTurn = player1.DisplayHands(whoseTurn);
+            whoseTurn = player2.DisplayHands(whoseTurn);
             Console.WriteLine();
             Console.WriteLine();
-            if(_whoseTurn == 1){
+            if(whoseTurn == 1){
                 Console.WriteLine("Player 1:");
                 attackHand = player1.AttackHand();
                 attackHandScore = GetAttackHandScore(attackHand, player1);
                 defendHand = DefendHand();
                 player2.AddScoreToHand(defendHand, attackHandScore);
-                isOutChecker(player1, player2);
-                _whoseTurn = 2;
+                whoseTurn = 2;
                 Console.Clear();
-            }else {
+            }else if(whoseTurn == 2) {
                 Console.WriteLine("Player 2:");
                 attackHand = player2.AttackHand();
                 attackHandScore = GetAttackHandScore(attackHand, player2);
                 defendHand = DefendHand();
                 player1.AddScoreToHand(defendHand, attackHandScore);
-                isOutChecker(player1, player2);
-                _whoseTurn = 1;
+                whoseTurn = 1;
                 Console.Clear();
+            }else {
+                break;
             }
-        }
-    }
-
-    public void isOutChecker(Player playerUno, Player playerDos){
-        if(playerDos.GetOut() == 1){
-            Console.Clear();
-            Console.WriteLine("Player 1 Wins! Bask in the humliation of your opponent.");
-            spinner.GetSpinner();
-            _whoseTurn = 0;
-        }else if (playerUno.GetOut() == 1){
-            Console.Clear();
-            Console.WriteLine("Player 2 Wins! Lord over your opponent with your well deserved epic bragging rights!");
-            spinner.GetSpinner();
-            _whoseTurn = 0;
-        }else {
-
         }
     }
 
