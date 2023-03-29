@@ -5,6 +5,7 @@ class Program
     static void Main(string[] args)
     {
         int action = 0;
+        Console.Clear();
         Console.WriteLine("Welcome to the Finger Math Game!");
         Thread.Sleep(2000);
 

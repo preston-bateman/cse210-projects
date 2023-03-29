@@ -8,11 +8,9 @@ public class LeftHand : Hand {
         _score = 1;
         CreateID();
     }
-
     public override void CreateID()
     {
         string x = _playerNum.ToString();
         _id = $"Player{x} {_side}Hand";
     }
-
 }
