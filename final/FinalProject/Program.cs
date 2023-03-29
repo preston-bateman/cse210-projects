@@ -13,7 +13,8 @@ class Program
             action = MenuHandler.RunMenu();
             switch(action){
                 case 1:
-                    
+                    TurnHandler newGame = new TurnHandler();
+                    newGame.Game();
                     break;
                 case 2:
 

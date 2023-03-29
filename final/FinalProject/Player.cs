@@ -20,14 +20,7 @@ public class Player{
         return adder;
     }
 
-    public int DefendHand(){
-        Console.WriteLine("Which hand are you attacking?");
-        Console.WriteLine("1 for opponents Left Hand");
-        Console.WriteLine("2 for opponents Right Hand");
-        string choice = Console.ReadLine();
-        int defender = Int32.Parse(choice);
-        return defender;
-    }
+    
 
     public int GetHandScore(int hand){
         int score;

@@ -7,6 +7,9 @@ public class TurnHandler{
     public void Game(){
         Player player1 = new Player();
         Player player2 = new Player();
+        int attackHand;
+        int attackHandScore;
+        int defendHand;
 
         Console.Clear();
         _whoseTurn = 1;
@@ -15,9 +18,22 @@ public class TurnHandler{
             player2.DisplayHands();
             if(_whoseTurn == 1){
                 Console.WriteLine("Player 1:");
-                player1.AttackHand();
+                attackHand = player1.AttackHand();
+                attackHandScore = GetAttackHandScore(attackHand, player1);
+                defendHand = DefendHand();
+                player2.AddScoreToHand(defendHand, attackHandScore);
+                isOutChecker(player1, player2);
+                _whoseTurn = 2;
+                Console.Clear();
             }else {
                 Console.WriteLine("Player 2:");
+                attackHand = player2.AttackHand();
+                attackHandScore = GetAttackHandScore(attackHand, player2);
+                defendHand = DefendHand();
+                player2.AddScoreToHand(defendHand, attackHandScore);
+                isOutChecker(player1, player2);
+                _whoseTurn = 1;
+                Console.Clear();
             }
         }
     }
@@ -28,6 +44,26 @@ public class TurnHandler{
             Console.WriteLine("Player 1 Wins! Bask in the humliation of your opponent.");
             spinner.GetSpinner();
             _whoseTurn = 0;
+        }else if (playerDos.GetOut() == 1){
+            Console.Clear();
+            Console.WriteLine("Player 2 Wins! Lord over your opponent with your well deserved epic bragging rights!");
+            spinner.GetSpinner();
+            _whoseTurn = 0;
+        }else {
+
         }
+    }
+
+    public int GetAttackHandScore(int oneOf, Player player){
+        return player.GetHandScore(oneOf);
+    }
+
+    public int DefendHand(){
+        Console.WriteLine("Which hand are you attacking?");
+        Console.WriteLine("1 for opponents Left Hand");
+        Console.WriteLine("2 for opponents Right Hand");
+        string choice = Console.ReadLine();
+        int defender = Int32.Parse(choice);
+        return defender;
     }
 }
