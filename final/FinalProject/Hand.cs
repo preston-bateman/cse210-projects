@@ -17,6 +17,7 @@ public abstract class Hand{
 
     public void ChangeScore(int attackingScore){
         _score += attackingScore;
+        StatusChanger();
     }
 
     public int GetScore(){
@@ -27,5 +28,17 @@ public abstract class Hand{
 
     public string GetID(){
         return _id;
+    }
+
+
+    public string StatusCheck(){
+        return _status;
+    }
+
+    public void StatusChanger(){
+        if(_score >= 5){
+            _status = "OUT";
+        }
+        else {}
     }
 }

@@ -6,7 +6,8 @@ public class Player{
     protected RightHand _righty;
     private int _isOut = 0;
 
-    public Player(){
+    public Player(int num){
+        _playerNumber = num;
         _lefty = new LeftHand(_playerNumber);
         _righty = new RightHand(_playerNumber);
     }
@@ -34,7 +35,7 @@ public class Player{
         return score;
     }
 
-    public void AddScoreToHand(int num, int handnum){
+    public void AddScoreToHand(int handnum, int num){
         if(handnum  == 1){
             _lefty.ChangeScore(num);
         }else if (handnum == 2){
@@ -47,7 +48,21 @@ public class Player{
     }
 
     public void DisplayHands(){
-        Console.WriteLine($"{_lefty.GetID()}---{_righty.GetID()}");
-        Console.WriteLine($"        {_lefty.GetScore()}                 {_righty.GetScore()}");
+        if(_lefty.StatusCheck() == "IN" && _righty.StatusCheck() == "IN"){
+            Console.WriteLine($"{_lefty.GetID()}---{_righty.GetID()}");
+            Console.WriteLine($"        {_lefty.GetScore()}                 {_righty.GetScore()}");
+        }else if(_lefty.StatusCheck() == "OUT" && _righty.StatusCheck() == "IN"){
+            Console.WriteLine($"{_lefty.GetID()}---{_righty.GetID()}");
+            Console.WriteLine($"        {_lefty.StatusCheck()}                 {_righty.GetScore()}");
+        }else if(_lefty.StatusCheck() == "IN" && _righty.StatusCheck() == "OUT"){
+            Console.WriteLine($"{_lefty.GetID()}---{_righty.GetID()}");
+            Console.WriteLine($"        {_lefty.GetScore()}                 {_righty.StatusCheck()}");
+        }
+    }
+
+    public void CheckOut(){
+        if(_lefty.StatusCheck() == "OUT" && _righty.StatusCheck() == "OUT"){
+            _isOut = 1;
+        }
     }
 }

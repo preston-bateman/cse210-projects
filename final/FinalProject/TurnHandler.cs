@@ -5,8 +5,8 @@ public class TurnHandler{
     Spinner spinner = new Spinner();
 
     public void Game(){
-        Player player1 = new Player();
-        Player player2 = new Player();
+        Player player1 = new Player(1);
+        Player player2 = new Player(2);
         int attackHand;
         int attackHandScore;
         int defendHand;
@@ -16,6 +16,8 @@ public class TurnHandler{
         while(_whoseTurn != 0){
             player1.DisplayHands();
             player2.DisplayHands();
+            Console.WriteLine();
+            Console.WriteLine();
             if(_whoseTurn == 1){
                 Console.WriteLine("Player 1:");
                 attackHand = player1.AttackHand();
@@ -30,7 +32,7 @@ public class TurnHandler{
                 attackHand = player2.AttackHand();
                 attackHandScore = GetAttackHandScore(attackHand, player2);
                 defendHand = DefendHand();
-                player2.AddScoreToHand(defendHand, attackHandScore);
+                player1.AddScoreToHand(defendHand, attackHandScore);
                 isOutChecker(player1, player2);
                 _whoseTurn = 1;
                 Console.Clear();
@@ -39,12 +41,12 @@ public class TurnHandler{
     }
 
     public void isOutChecker(Player playerUno, Player playerDos){
-        if(playerUno.GetOut() == 1){
+        if(playerDos.GetOut() == 1){
             Console.Clear();
             Console.WriteLine("Player 1 Wins! Bask in the humliation of your opponent.");
             spinner.GetSpinner();
             _whoseTurn = 0;
-        }else if (playerDos.GetOut() == 1){
+        }else if (playerUno.GetOut() == 1){
             Console.Clear();
             Console.WriteLine("Player 2 Wins! Lord over your opponent with your well deserved epic bragging rights!");
             spinner.GetSpinner();

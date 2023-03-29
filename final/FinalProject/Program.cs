@@ -17,7 +17,7 @@ class Program
                     newGame.Game();
                     break;
                 case 2:
-
+                    
                     break; 
             }
         }

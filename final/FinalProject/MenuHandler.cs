@@ -14,15 +14,4 @@ public class MenuHandler{
         return selection;
     }
 
-    public static int CreateMenu(){
-        Console.WriteLine($"What type of Goal do you wish to make:");
-        Console.WriteLine($"1. Simple Goal");
-        Console.WriteLine($"2. Eternal Goal");
-        Console.WriteLine($"3. Checklist Goal");
-        Console.Write($"Enter the number for the Goal Type: ");
-        string newanswer = Console.ReadLine();
-        int selection = int.Parse(newanswer);
-
-        return selection;
-    }
 }
