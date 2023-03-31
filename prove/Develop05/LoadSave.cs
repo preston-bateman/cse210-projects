@@ -30,6 +30,10 @@ public class LoadSave{
                 if (goalType == "Simple Goal:") {
                     var goal = new SimpleGoals(goalParts[1], goalParts[2]);
                     _goals.Add(goal);
+                } else if(goalType == "Eternal Goal:") {
+                    var goal = new EternalGoals(goalParts[1], goalParts[2]);
+                } else if(goalType == "ChecklistGoal:"){
+                    
                 }
             }
         }

@@ -13,6 +13,10 @@ public abstract class Goals{
         _desc = desc;
         _value = value;
     }
+
+    public Goals(string name, string desc){
+        
+    }
     
     //getters and setters
     public string GetName(){
